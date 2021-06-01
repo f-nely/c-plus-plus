@@ -23,4 +23,19 @@ int main()
         exit(0);
     }
 
+    bFezSol = bCarroPronto = bSalarioDepositado = true;
+
+    if (bAcesso == true) {
+
+        if (bFezSol && bCarroPronto && bSalarioDepositado) {
+
+            cout << "Vai dar praia!!" << endl;
+
+        } else {
+
+            cout << "Não vai dá praia!!" << endl;
+        }
+
+    }
+
 }

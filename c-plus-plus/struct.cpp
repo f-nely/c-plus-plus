@@ -5,19 +5,37 @@ using namespace std;
 
 struct Data
 {
+    static int contador;
+    int id;
     int dia;
     int mes;
     int ano;
+
+    Data() {
+        id = contador++;
+        cout << "\nConstrutor Data(" << id << ") executado" << endl;
+    }
+    ~Data() {
+        cout << "\nDestrutor ~Data(" << id << ") executado" << endl;
+    }
 };
+
+int Data::contador = 1;
 
 int main()
 {
-    Data Agenda;
-    Agenda.dia = 22;
-    Agenda.mes = 07;
-    Agenda.ano = 2013;
+   {
+        Data Agenda;
 
-    cout << Agenda.dia << " / 0" << Agenda.mes << " / " << Agenda.ano << endl;
+        {
+            Data Agenda2;
+            // agora este objeto Agenda3 está na heap
+            Data *Agenda3 = new Data();
+            delete(Agenda3);
+        }
+
+        Data Agenda4;
+   }
 
     return 0;
 }
